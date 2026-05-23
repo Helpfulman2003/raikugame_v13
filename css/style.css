@@ -1,345 +1,357 @@
+﻿:root {
+--neon-cyan: #57ffe5;
+--neon-blue: #78d8ff;
+--neon-dark: #03111c;
+--neon-panel: rgba(4, 17, 28, 0.88);
+--neon-glow: 0 0 20px rgba(85, 255, 229, 0.35);
+}
+
 /* Broad site-wide styles */
 body {
-	background: #1f513b;
-	background: linear-gradient(to top right, #1f513b, #0F2725) fixed;
-	text-align: center;
-	font-family: 'Lato', sans-serif;
-	color: white;
+background: radial-gradient(circle at top, #0a2a4a 0%, #071827 52%, #02070d 100%) fixed;
+text-align: center;
+font-family: 'Lato', sans-serif;
+color: #e8fffb;
 }
 
 h1, h2, h3, h4, h5, .brand-logo {
-	font-family: 'Arvo', serif;
+font-family: 'Arvo', serif;
 }
 
 h1 {
-	font-size: 4em;
+font-size: 4em;
+text-shadow: 0 0 18px rgba(87, 255, 229, 0.45);
 }
 
 h4 {
-	font-size: 1.75em;
+font-size: 1.75em;
 }
 
 p {
-	font-size: 1.25em;
-	line-height: 1.75em;
+font-size: 1.25em;
+line-height: 1.75em;
 }
 
 strong {
-	font-family: 'Arvo', serif;
-	padding: 4px 0;
-	display: block;
-	font-size: 1.10em;
+font-family: 'Arvo', serif;
+padding: 4px 0;
+display: block;
+font-size: 1.10em;
 }
 
-
 button, button:focus {
-	margin: 5px;
-	padding: 10px 20px;
-	background: #d60438;
-	color: white;
-	font-size: 1.25em;
-	font-weight: 400;
-	letter-spacing: 1px;
-	border: 0;
+margin: 5px;
+padding: 12px 22px;
+background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
+color: #03111c;
+font-size: 1.25em;
+font-weight: 700;
+letter-spacing: 1px;
+border: 0;
+border-radius: 999px;
+box-shadow: var(--neon-glow);
+transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+button:hover {
+transform: translateY(-1px);
+box-shadow: 0 0 26px rgba(87, 255, 229, 0.5);
 }
 
 button.secondary {
-	background: #1E6692;
+background: linear-gradient(135deg, #7ee8ff, #35b3ff);
 }
 
 button:active {
-	background: black;
+background: #04121f;
+color: #e8fffb;
 }
 
 button.disabled-button, button.secondary.disabled-button {
-	background: #0F2725;
+background: linear-gradient(135deg, #183748, #0f2a3b);
+color: #8fbfd0;
+box-shadow: none;
 }
 
-/* Welcome screen */
 #welcome p {
-	width: 50%;
-	margin: 10px auto;
+width: 50%;
+margin: 10px auto;
 }
 
-/* Rules section hidden at start and can toggle in from above */
 #rules {
-	padding: 30px 20px 20px 20px;
-/*	margin: 20px auto 30px auto;*/
-	text-align: left;
-	display: none; 
-	background: #0F2725;
-	position: absolute;
-	top: 55px;
-	right: 0;
-	width: 100%;
-	z-index: 99;
-	font-size: .75em;
+padding: 30px 20px 20px 20px;
+text-align: left;
+display: none;
+background: rgba(3, 12, 24, 0.96);
+position: absolute;
+top: 55px;
+right: 0;
+width: 100%;
+z-index: 99;
+font-size: .75em;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 #rules button {
-	float: right;
-	margin-right: 20px;
+float: right;
+margin-right: 20px;
 }
 
 #rules h4 {
-	text-align: center;
+text-align: center;
 }
 
-/* Card decks during gameplay */
-
 #deck-pile, #dealer, #user-hand, #user-split-hand {
-	display: inline-block;
-	position: relative;
+display: inline-block;
+position: relative;
 }
 
 .card {
-	transition: all 3s;
-	display: inline-block;
-	background-color: none !important;
-	border-radius: 12.5px;
-	outline-offset: -6px;
-	outline: 6px solid white;
-	box-shadow: -3px 4px rgba(15, 39, 37, .25);
+transition: all 3s;
+display: inline-block;
+background-color: rgba(3, 15, 24, 0.98) !important;
+border-radius: 18px;
+outline-offset: -4px;
+outline: 2px solid rgba(87, 255, 229, 0.95);
+box-shadow: 0 0 18px rgba(87, 255, 229, 0.28), -3px 4px rgba(15, 39, 37, .35);
+width: 140px;
+height: 200px;
+object-fit: cover;
+position: relative;
 }
 
 .card:hover {
-	z-index: 100;
+z-index: 100;
+}
+
+.card::before,
+.card::after {
+position: absolute;
+z-index: 2;
+font-family: 'Arvo', serif;
+font-weight: 700;
+font-size: 1.45em;
+color: #edfffb;
+text-shadow: 0 0 10px rgba(87, 255, 229, 0.85);
+pointer-events: none;
+}
+
+.card::before {
+content: attr(data-rank);
+top: 10px;
+left: 12px;
+}
+
+.card::after {
+content: attr(data-suit-glyph);
+bottom: 10px;
+right: 12px;
+font-size: 1.75em;
+}
+
+.card-back::before,
+.card-back::after {
+content: none;
 }
 
 .pile {
-	margin-right: 30px;
-} 
-
-/* Chips and wagers */
+margin-right: 30px;
+}
 
 .wager {
-	height: 60px;
-	width: 60px;
-	margin: 2px;
-	display: inline-block;
+height: 60px;
+width: 60px;
+margin: 2px;
+display: inline-block;
+filter: drop-shadow(0 0 12px rgba(87, 255, 229, 0.35));
 }
 
 .wager-clickable {
-	margin: 15px 2px;
+margin: 15px 2px;
 }
 
 .wager-clickable:hover {
-	transform: scale(1.10);
+transform: scale(1.10);
 }
 
-/* For bet screen where the supporting icons don't need to be full size */
 .wager-small {
-	margin-left: 30px;
-	margin-right: 10px;
-	height: 40px;
-	width: 40px;
+margin-left: 30px;
+margin-right: 10px;
+height: 40px;
+width: 40px;
 }
 
-/*For when user is choosing what their bet is */
 #wager-options {
-	margin: 15px auto 5px auto;
+margin: 15px auto 5px auto;
 }
 
 #wager-options span {
-	display: inline-block;
-	margin: 20px auto;
-	font-size: 2em;
-	line-height: 1.5em;
-	position: relative;
-	bottom: 10px;
+display: inline-block;
+margin: 20px auto;
+font-size: 2em;
+line-height: 1.5em;
+position: relative;
+bottom: 10px;
 }
 
-/* For displaying during the game */
 .wager-gameplay {
-	font-size: 2.5em;
-	position: relative;
-	top: 50px;
+font-size: 2.5em;
+position: relative;
+top: 50px;
 }
 
-.wager-gameplay span { 
-	display: block;
+.wager-gameplay span {
+display: block;
 }
 
-/* Gameover scoreboard table */
 table {
-	width: 50%;
-	margin: 0 auto;
-	padding: 0;
+width: 50%;
+margin: 0 auto;
+padding: 0;
 }
 
 .total-label {
-	text-align: right;
-	padding-right: 20px;
+text-align: right;
+padding-right: 20px;
 }
 
 .total-output {
-	text-align: left;
+text-align: left;
 }
 
-/* Card totals */
 .hand-total, .split-hand-total, .dealer-hand-total {
-	background: black;
-	padding: 10px 0;
-	margin: 2px;
-	display: inline-block;
-	font-size: 1.25em;
-	text-align: center;
-	width: 50px;
+background: rgba(3, 12, 24, 0.95);
+padding: 10px 0;
+margin: 2px;
+display: inline-block;
+font-size: 1.25em;
+text-align: center;
+width: 50px;
+border-radius: 999px;
+border: 1px solid rgba(87, 255, 229, 0.35);
 }
 
-/* On the gameboard, these totals get positioned differently over the decks */
 .game-board-totals {
-	position: relative;
-	left: -15px;
-	bottom: 40px;
-	margin-right: -15px;
+position: relative;
+left: -15px;
+bottom: 40px;
+margin-right: -15px;
 }
 
 #user-split-hand {
-	margin-left: 20px;
+margin-left: 20px;
 }
 
-/* For whenever split hand state is engaged, we will scale decks up and down */
 .splithand-scaledown {
-	transition: all 1s;
-	transform: scale(.75);
-	left: -80px;
-	margin-right: -40px;
+transition: all 1s;
+transform: scale(.75);
+left: -80px;
+margin-right: -40px;
 }
 
 #user-hand.splithand-scaledown, #user-split-hand.splithand-scaledown {
-	transform: scale(.4);
-	left: 0;
-	margin-right: -30px;
+transform: scale(.4);
+left: 0;
+margin-right: -30px;
 }
 
-/* Game button action items are styled bigger than the other buttons */
 #sidebar button {
-	width: 100%;
-	height: 70px;
-	margin: 5px 0 10px 0;
-	overflow: none;
-	padding: 0;
+width: 100%;
+height: 70px;
+margin: 5px 0 10px 0;
+overflow: none;
+padding: 0;
 }
 
-/* For any items invisible at start that we will toggle/show later */
 .inactive {
-	display: none;
+display: none;
 }
 
-
-/* Materialize framework style overrides*/
 .nav-wrapper {
-	background-color: black !important;
- 	text-align: left !important;
-	box-shadow: 0 !important;
+background: linear-gradient(90deg, rgba(4, 20, 37, 0.98), rgba(8, 43, 58, 0.92)) !important;
+text-align: left !important;
+box-shadow: 0 0 18px rgba(87, 255, 229, 0.2) !important;
 }
 
 .navbar-fixed {
-	margin-bottom: 25px !important;
+margin-bottom: 25px !important;
 }
 
-.brand-logo { /* Text in nav bar */
-	padding-left: 20px !important;
-	font-size: 1.5em !important;
+.brand-logo {
+padding-left: 20px !important;
+font-size: 1.5em !important;
 }
 
-.rules-nav { /* Icon to toggle rules */
-	padding-right: 20px !important;
+.rules-nav {
+padding-right: 20px !important;
 }
 
-.modal { 
-	padding: 40px 0 !important;
-	width: 75% !important; 
-	height: 75% !important;
-	opacity: .90 !important;
-	overflow: hidden !important;
-	max-height: 100% !important;
-} 
+.modal {
+padding: 40px 0 !important;
+width: 75% !important;
+height: 75% !important;
+opacity: .90 !important;
+overflow: hidden !important;
+max-height: 100% !important;
+background: rgba(230, 255, 253, 0.96) !important;
+border-radius: 24px;
+}
 
 .modal-content h4, .modal-content p {
-	color: black;
+color: #05111d;
 }
 
 .modal-body {
-	max-height: 600px;
+max-height: 600px;
 }
 
 .row {
-	margin: 0 auto;
+margin: 0 auto;
 }
 
-/* Resposive mobile adjustments*/
-@media all and (max-width: 600px){
-	.wager-gameplay {
-		top: 0;
-	}
+@media all and (max-width: 600px) {
+.wager-gameplay {
+top: 0;
+}
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+.navbar-fixed {
+margin-bottom: 8px !important;
+}
 
-	.navbar-fixed {
-		margin-bottom: 8px !important;
-	}
+.game-board h4 {
+font-size: 1.25em;
+}
 
-	.game-board h4 {
-		font-size: 1.25em;
-	}
+.game-over h3 {
+font-size: 2.25em;
+}
 
-	.game-over h3 {
-		font-size: 2.25em;
-	}
+p {
+font-size: 1.4em;
+}
 
-	p {
-		font-size: 1.4em;
-	}
+table {
+width: 100%;
+}
 
+#welcome p {
+width: 100%;
+}
 
-	table {
-		width: 100%;
-	}
+.card {
+width: 77px;
+height: 103.5px;
+}
 
-	#welcome p {
-		width: 100%;
-	}
+#sidebar button {
+width: 70px;
+height: 40px;
+font-size: .75em;
+}
 
-	.card {
-		width: 77px;
-		height: 103.5px;
-	}
-
-	#sidebar button {
-		width: 70px;
-		height: 40px;
-		font-size: .75em;
-	}
-
-	.total-label {
-		padding-right: 0;
-	}
-
-	.total-output {
-		padding-left: 10px;
-	}
-
-	.wager-gameplay {
-		font-size: 1.75em;
-		position: relative;
-		top: 0;
-		margin: 0 auto;
-	}
-
-	.wager-gameplay .wager {
-		height: 30px;
-		width: 30px;
-	}
-
-	.wager-gameplay span {
-		font-size: .75em;
-		display: inline-block;
-		margin-left: 20px;
-		position: relative;
-		bottom: 10px;
-	}
-
+.total-label {
+padding-right: 0;
+}
 }
