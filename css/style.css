@@ -1,357 +1,373 @@
 ﻿:root {
---neon-cyan: #57ffe5;
---neon-blue: #78d8ff;
---neon-dark: #03111c;
---neon-panel: rgba(4, 17, 28, 0.88);
---neon-glow: 0 0 20px rgba(85, 255, 229, 0.35);
+    --neon-cyan: #d0ff3a;
+    --neon-blue: #8dff47;
+    --neon-dark: #03111c;
+    --neon-panel: rgba(4, 17, 28, 0.88);
+    --neon-glow: 0 0 22px rgba(208, 255, 58, 0.42);
 }
 
 /* Broad site-wide styles */
 body {
-background: radial-gradient(circle at top, #0a2a4a 0%, #071827 52%, #02070d 100%) fixed;
-text-align: center;
-font-family: 'Lato', sans-serif;
-color: #e8fffb;
+    background: radial-gradient(circle at top, #0a2a4a 0%, #071827 52%, #02070d 100%) fixed;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    color: #e8fffb;
 }
 
-h1, h2, h3, h4, h5, .brand-logo {
-font-family: 'Arvo', serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+.brand-logo {
+    font-family: 'Arvo', serif;
 }
 
 h1 {
-font-size: 4em;
-text-shadow: 0 0 18px rgba(87, 255, 229, 0.45);
+    font-size: 4em;
+    text-shadow: 0 0 18px rgba(87, 255, 229, 0.45);
 }
 
 h4 {
-font-size: 1.75em;
+    font-size: 1.75em;
 }
 
 p {
-font-size: 1.25em;
-line-height: 1.75em;
+    font-size: 1.25em;
+    line-height: 1.75em;
 }
 
 strong {
-font-family: 'Arvo', serif;
-padding: 4px 0;
-display: block;
-font-size: 1.10em;
+    font-family: 'Arvo', serif;
+    padding: 4px 0;
+    display: block;
+    font-size: 1.10em;
 }
 
-button, button:focus {
-margin: 5px;
-padding: 12px 22px;
-background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
-color: #03111c;
-font-size: 1.25em;
-font-weight: 700;
-letter-spacing: 1px;
-border: 0;
-border-radius: 999px;
-box-shadow: var(--neon-glow);
-transition: transform 180ms ease, box-shadow 180ms ease;
+button,
+button:focus {
+    margin: 5px;
+    padding: 12px 22px;
+    background: linear-gradient(135deg, #d0ff3a, #8dff47);
+    color: #03111c;
+    font-size: 1.25em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 0;
+    border-radius: 999px;
+    box-shadow: 0 0 22px rgba(208, 255, 58, 0.42);
+    transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
 
 button:hover {
-transform: translateY(-1px);
-box-shadow: 0 0 26px rgba(87, 255, 229, 0.5);
+    transform: translateY(-1px);
+    filter: brightness(1.08);
+    box-shadow: 0 0 30px rgba(208, 255, 58, 0.6);
 }
 
 button.secondary {
-background: linear-gradient(135deg, #7ee8ff, #35b3ff);
+    background: linear-gradient(135deg, #b8f030, #70e030);
 }
 
 button:active {
-background: #04121f;
-color: #e8fffb;
+    background: linear-gradient(135deg, #a8d020, #60c820);
+    color: #03111c;
 }
 
-button.disabled-button, button.secondary.disabled-button {
-background: linear-gradient(135deg, #183748, #0f2a3b);
-color: #8fbfd0;
-box-shadow: none;
+button.disabled-button,
+button.secondary.disabled-button {
+    background: linear-gradient(135deg, #183748, #0f2a3b);
+    color: #8fbfd0;
+    box-shadow: none;
+    filter: none;
 }
 
 #welcome p {
-width: 50%;
-margin: 10px auto;
+    width: 50%;
+    margin: 10px auto;
 }
 
 #rules {
-padding: 30px 20px 20px 20px;
-text-align: left;
-display: none;
-background: rgba(3, 12, 24, 0.96);
-position: absolute;
-top: 55px;
-right: 0;
-width: 100%;
-z-index: 99;
-font-size: .75em;
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    padding: 30px 20px 20px 20px;
+    text-align: left;
+    display: none;
+    background: rgba(3, 12, 24, 0.96);
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 100%;
+    z-index: 99;
+    font-size: .75em;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 #rules button {
-float: right;
-margin-right: 20px;
+    float: right;
+    margin-right: 20px;
 }
 
 #rules h4 {
-text-align: center;
+    text-align: center;
 }
 
-#deck-pile, #dealer, #user-hand, #user-split-hand {
-display: inline-block;
-position: relative;
+#deck-pile,
+#dealer,
+#user-hand,
+#user-split-hand {
+    display: inline-block;
+    position: relative;
 }
 
 .card {
-transition: all 3s;
-display: inline-block;
-background-color: rgba(3, 15, 24, 0.98) !important;
-border-radius: 18px;
-outline-offset: -4px;
-outline: 2px solid rgba(87, 255, 229, 0.95);
-box-shadow: 0 0 18px rgba(87, 255, 229, 0.28), -3px 4px rgba(15, 39, 37, .35);
-width: 140px;
-height: 200px;
-object-fit: cover;
-position: relative;
+    transition: all 3s;
+    display: inline-block;
+    background-color: rgba(3, 15, 24, 0.98) !important;
+    border-radius: 18px;
+    outline-offset: -4px;
+    outline: 2px solid rgba(87, 255, 229, 0.95);
+    box-shadow: 0 0 18px rgba(87, 255, 229, 0.28), -3px 4px rgba(15, 39, 37, .35);
+    width: 140px;
+    height: 200px;
+    object-fit: cover;
+    position: relative;
 }
 
 .card:hover {
-z-index: 100;
+    z-index: 100;
 }
 
 .card::before,
 .card::after {
-position: absolute;
-z-index: 2;
-font-family: 'Arvo', serif;
-font-weight: 700;
-font-size: 1.45em;
-color: #edfffb;
-text-shadow: 0 0 10px rgba(87, 255, 229, 0.85);
-pointer-events: none;
+    position: absolute;
+    z-index: 2;
+    font-family: 'Arvo', serif;
+    font-weight: 700;
+    font-size: 1.45em;
+    color: #edfffb;
+    text-shadow: 0 0 10px rgba(87, 255, 229, 0.85);
+    pointer-events: none;
 }
 
 .card::before {
-content: attr(data-rank);
-top: 10px;
-left: 12px;
+    content: attr(data-rank);
+    top: 10px;
+    left: 12px;
 }
 
 .card::after {
-content: attr(data-suit-glyph);
-bottom: 10px;
-right: 12px;
-font-size: 1.75em;
+    content: attr(data-suit-glyph);
+    bottom: 10px;
+    right: 12px;
+    font-size: 1.75em;
 }
 
 .card-back::before,
 .card-back::after {
-content: none;
+    content: none;
 }
 
 .pile {
-margin-right: 30px;
+    margin-right: 30px;
 }
 
 .wager {
-height: 60px;
-width: 60px;
-margin: 2px;
-display: inline-block;
-filter: drop-shadow(0 0 12px rgba(87, 255, 229, 0.35));
+    height: 60px;
+    width: 60px;
+    margin: 2px;
+    display: inline-block;
+    filter: drop-shadow(0 0 12px rgba(87, 255, 229, 0.35));
 }
 
 .wager-clickable {
-margin: 15px 2px;
+    margin: 15px 2px;
 }
 
 .wager-clickable:hover {
-transform: scale(1.10);
+    transform: scale(1.10);
 }
 
 .wager-small {
-margin-left: 30px;
-margin-right: 10px;
-height: 40px;
-width: 40px;
+    margin-left: 30px;
+    margin-right: 10px;
+    height: 40px;
+    width: 40px;
 }
 
 #wager-options {
-margin: 15px auto 5px auto;
+    margin: 15px auto 5px auto;
 }
 
 #wager-options span {
-display: inline-block;
-margin: 20px auto;
-font-size: 2em;
-line-height: 1.5em;
-position: relative;
-bottom: 10px;
+    display: inline-block;
+    margin: 20px auto;
+    font-size: 2em;
+    line-height: 1.5em;
+    position: relative;
+    bottom: 10px;
 }
 
 .wager-gameplay {
-font-size: 2.5em;
-position: relative;
-top: 50px;
+    font-size: 2.5em;
+    position: relative;
+    top: 50px;
 }
 
 .wager-gameplay span {
-display: block;
+    display: block;
 }
 
 table {
-width: 50%;
-margin: 0 auto;
-padding: 0;
+    width: 50%;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .total-label {
-text-align: right;
-padding-right: 20px;
+    text-align: right;
+    padding-right: 20px;
 }
 
 .total-output {
-text-align: left;
+    text-align: left;
 }
 
-.hand-total, .split-hand-total, .dealer-hand-total {
-background: rgba(3, 12, 24, 0.95);
-padding: 10px 0;
-margin: 2px;
-display: inline-block;
-font-size: 1.25em;
-text-align: center;
-width: 50px;
-border-radius: 999px;
-border: 1px solid rgba(87, 255, 229, 0.35);
+.hand-total,
+.split-hand-total,
+.dealer-hand-total {
+    background: rgba(3, 12, 24, 0.95);
+    padding: 10px 0;
+    margin: 2px;
+    display: inline-block;
+    font-size: 1.25em;
+    text-align: center;
+    width: 50px;
+    border-radius: 999px;
+    border: 1px solid rgba(87, 255, 229, 0.35);
 }
 
 .game-board-totals {
-position: relative;
-left: -15px;
-bottom: 40px;
-margin-right: -15px;
+    position: relative;
+    left: -15px;
+    bottom: 40px;
+    margin-right: -15px;
 }
 
 #user-split-hand {
-margin-left: 20px;
+    margin-left: 20px;
 }
 
 .splithand-scaledown {
-transition: all 1s;
-transform: scale(.75);
-left: -80px;
-margin-right: -40px;
+    transition: all 1s;
+    transform: scale(.75);
+    left: -80px;
+    margin-right: -40px;
 }
 
-#user-hand.splithand-scaledown, #user-split-hand.splithand-scaledown {
-transform: scale(.4);
-left: 0;
-margin-right: -30px;
+#user-hand.splithand-scaledown,
+#user-split-hand.splithand-scaledown {
+    transform: scale(.4);
+    left: 0;
+    margin-right: -30px;
 }
 
 #sidebar button {
-width: 100%;
-height: 70px;
-margin: 5px 0 10px 0;
-overflow: none;
-padding: 0;
+    width: 100%;
+    height: 70px;
+    margin: 5px 0 10px 0;
+    overflow: none;
+    padding: 0;
 }
 
 .inactive {
-display: none;
+    display: none;
 }
 
 .nav-wrapper {
-background: linear-gradient(90deg, rgba(4, 20, 37, 0.98), rgba(8, 43, 58, 0.92)) !important;
-text-align: left !important;
-box-shadow: 0 0 18px rgba(87, 255, 229, 0.2) !important;
+    background: linear-gradient(90deg, rgba(4, 20, 37, 0.98), rgba(8, 43, 58, 0.92)) !important;
+    text-align: left !important;
+    box-shadow: 0 0 18px rgba(87, 255, 229, 0.2) !important;
 }
 
 .navbar-fixed {
-margin-bottom: 25px !important;
+    margin-bottom: 25px !important;
 }
 
 .brand-logo {
-padding-left: 20px !important;
-font-size: 1.5em !important;
+    padding-left: 20px !important;
+    font-size: 1.5em !important;
 }
 
 .rules-nav {
-padding-right: 20px !important;
+    padding-right: 20px !important;
 }
 
 .modal {
-padding: 40px 0 !important;
-width: 75% !important;
-height: 75% !important;
-opacity: .90 !important;
-overflow: hidden !important;
-max-height: 100% !important;
-background: rgba(230, 255, 253, 0.96) !important;
-border-radius: 24px;
+    padding: 40px 0 !important;
+    width: 75% !important;
+    height: 75% !important;
+    opacity: .90 !important;
+    overflow: hidden !important;
+    max-height: 100% !important;
+    background: rgba(230, 255, 253, 0.96) !important;
+    border-radius: 24px;
 }
 
-.modal-content h4, .modal-content p {
-color: #05111d;
+.modal-content h4,
+.modal-content p {
+    color: #05111d;
 }
 
 .modal-body {
-max-height: 600px;
+    max-height: 600px;
 }
 
 .row {
-margin: 0 auto;
+    margin: 0 auto;
 }
 
 @media all and (max-width: 600px) {
-.wager-gameplay {
-top: 0;
-}
+    .wager-gameplay {
+        top: 0;
+    }
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-.navbar-fixed {
-margin-bottom: 8px !important;
-}
+    .navbar-fixed {
+        margin-bottom: 8px !important;
+    }
 
-.game-board h4 {
-font-size: 1.25em;
-}
+    .game-board h4 {
+        font-size: 1.25em;
+    }
 
-.game-over h3 {
-font-size: 2.25em;
-}
+    .game-over h3 {
+        font-size: 2.25em;
+    }
 
-p {
-font-size: 1.4em;
-}
+    p {
+        font-size: 1.4em;
+    }
 
-table {
-width: 100%;
-}
+    table {
+        width: 100%;
+    }
 
-#welcome p {
-width: 100%;
-}
+    #welcome p {
+        width: 100%;
+    }
 
-.card {
-width: 77px;
-height: 103.5px;
-}
+    .card {
+        width: 77px;
+        height: 103.5px;
+    }
 
-#sidebar button {
-width: 70px;
-height: 40px;
-font-size: .75em;
-}
+    #sidebar button {
+        width: 70px;
+        height: 40px;
+        font-size: .75em;
+    }
 
-.total-label {
-padding-right: 0;
-}
+    .total-label {
+        padding-right: 0;
+    }
 }
